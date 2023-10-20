@@ -1,13 +1,35 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello FizzBuzz!" );
-    }
-}
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        try{
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("Please enter the maximum number to loop through");
+            int maximum = myObj.nextInt();
+            if (maximum<0) {
+                System.out.println("Please give a positive integer");
+            }
+            String result = "";
+            for (int i=1;i<=maximum; i++) {
+                if (i%3==0 && i%5==0) {
+                    result += " FIZZBUZZ ";
+                }
+                else if (i%3==0) {
+                    result += " FIZZ ";
+                }
+                else if (i%5==0) {
+                    result += " BUZZ ";
+                }
+                else if (i>0) {
+                    result += " " + i + " ";
+                }
+            }
+            System.out.println(result);
+        } catch (Exception e) {
+            System.out.println("Please give a positive integer");
+            System.out.println(e.getStackTrace());
+            System.exit(0);
+        }
+    }}
